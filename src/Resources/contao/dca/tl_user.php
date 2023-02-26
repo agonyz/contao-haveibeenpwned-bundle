@@ -24,4 +24,7 @@ PaletteManipulator::create()
     ->addField('agonyzHaveIBeenPwnedNotification', 'agonyz_have_i_been_pwned_legend:hide', PaletteManipulator::POSITION_APPEND)
     ->applyToPalette('admin', 'tl_user')
     ->applyToPalette('login', 'tl_user')
+    ->applyToPalette('default', 'tl_user')
+    ->applyToPalette('group', 'tl_user')
+    ->applyToPalette('custom', 'tl_user')
 ;
