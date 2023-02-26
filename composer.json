@@ -1,0 +1,73 @@
+{
+    "name": "agonyz/contao-haveibeenpwned-bundle",
+    "description": "This extensions automatically checks the user's password when logging in via the HaveIBeenPwned Api",
+    "license": "LGPL-3.0-or-later",
+    "keywords": [
+        "contao",
+        "haveibeenpwned",
+        "api",
+        "automatic",
+        "password"
+    ],
+    "type": "contao-bundle",
+    "authors": [
+        {
+            "name": "agonyz",
+            "homepage": "https://agonyz.de",
+            "email": "dev@agonyz.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/agonyz/contao-haveibeenpwned-bundle/issues",
+        "source": "https://github.com/agonyz/contao-haveibeenpwned-bundle"
+    },
+    "homepage": "https://github.com/agonyz/contao-haveibeenpwned-bundle",
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "contao/core-bundle": "^4.13",
+        "symfony/config": "^5.4",
+        "symfony/dependency-injection": "^5.4",
+        "symfony/http-kernel": "^5.4",
+        "symfony/validator": "^5.4"
+    },
+    "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.5",
+        "contao/manager-plugin": "^2.0",
+        "phpunit/phpunit": "^9.5",
+        "symfony/phpunit-bridge": "^6.1"
+    },
+    "conflict": {
+        "contao/manager-plugin": "<2.0 || >=3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Agonyz\\ContaoHaveIBeenPwnedBundle\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "bamarni/composer-bin-plugin": true,
+            "contao-components/installer": true,
+            "contao/manager-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "extra": {
+        "bamarni-bin": {
+            "bin-links": false,
+            "target-directory": "tools"
+        },
+        "contao-manager-plugin": "Agonyz\\ContaoHaveIBeenPwnedBundle\\ContaoManager\\Plugin"
+    },
+    "scripts": {
+        "all": [
+            "@unit-tests",
+            "@ecs",
+            "@phpstan"
+        ],
+        "ecs": "@php tools/ecs/vendor/bin/ecs check src --config ecs.php --fix --ansi",
+        "phpstan": "@php tools/phpstan/vendor/bin/phpstan analyze --ansi",
+        "unit-tests": "@php vendor/bin/phpunit --colors=always"
+    }
+}

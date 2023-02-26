@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autoconfigure: true
+
+    Agonyz\ContaoHaveIBeenPwnedBundle\EventSubscriber\LoginSubscriber:
+        arguments:
+            - '@Agonyz\ContaoHaveIBeenPwnedBundle\Service\PasswordValidator'
+            - '%agonyz_contao_haveibeenpwned.user_notice%'
+
+    Agonyz\ContaoHaveIBeenPwnedBundle\Service\PasswordValidator:
+        arguments:
+            - '@Symfony\Component\Validator\Validator\ValidatorInterface'
+
